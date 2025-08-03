@@ -2,6 +2,7 @@ import Event from "../models/events.js";
 
 // @desc    Create new event
 const createEvent = async (req, res) => {
+  const io = req.app.get("io");
   try {
     const { title, description, category, date, location } = req.body;
 
@@ -13,7 +14,7 @@ const createEvent = async (req, res) => {
       location,
       createdBy: req.user._id,
     });
-
+    io.emit("newEvent", event); // Broadcast to everyone
     res.status(201).json(event);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -36,6 +37,7 @@ const getEvents = async (req, res) => {
 
 // @desc    RSVP to an event
 const rsvpEvent = async (req, res) => {
+  const io = req.app.get("io");
   try {
     const event = await Event.findById(req.params.id);
 
@@ -52,6 +54,7 @@ const rsvpEvent = async (req, res) => {
     }
 
     await event.save();
+    io.emit("eventUpdated", event); // Notify all clients about the update
     res.json(event);
   } catch (err) {
     res.status(500).json({ message: err.message });

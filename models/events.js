@@ -1,8 +1,25 @@
 import mongoose from "mongoose";
+
+const commentSchema = new mongoose.Schema(
+  {
+    author: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+    content: {
+      type: String,
+      required: true,
+    },
+  },
+  { timestamps: true }
+);
+
 const eventSchema = new mongoose.Schema(
   {
     title: { type: String, required: true },
     description: { type: String },
+    comments: [commentSchema],
     category: { type: String },
     date: { type: Date, required: true },
     location: { type: String },

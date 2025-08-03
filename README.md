@@ -152,7 +152,7 @@ client/
 8. **Dashboard**: Admin dashboard for event management
 9. **Profile**: User profile management
 
-## 🎨 Design System
+##  Design System
 
 The application uses a consistent color palette:
 
@@ -164,7 +164,7 @@ The application uses a consistent color palette:
 Typography: Poppins font family for modern, clean appearance.
 
 
-## 🔐 Authentication Flow
+##  Authentication Flow
 
 1. User registers with name, email, and password
 2. Password is hashed using bcryptjs
@@ -173,7 +173,7 @@ Typography: Poppins font family for modern, clean appearance.
 5. Protected routes verify JWT token via middleware
 6. User data is attached to request object for route handlers
 
-## 🌐 Real-time Features
+##  Real-time Features
 
 The application uses Socket.io for real-time communication:
 

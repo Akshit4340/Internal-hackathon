@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
@@ -7,23 +8,23 @@ const HomePage = () => {
       <nav className="w-full flex justify-between items-center px-6 py-4 bg-[#1B3C53] text-white shadow">
         <h1 className="text-2xl font-bold">EventSphere</h1>
         <div className="space-x-6 hidden md:flex">
-          <a href="/" className="hover:text-[#D2C1B6]">
+          <Link to="/" className="hover:text-[#D2C1B6]">
             Home
-          </a>
-          <a href="/events" className="hover:text-[#D2C1B6]">
+          </Link>
+          <Link to="/events" className="hover:text-[#D2C1B6]">
             Events
-          </a>
-          <a href="/login" className="hover:text-[#D2C1B6]">
+          </Link>
+          <Link to="/login" className="hover:text-[#D2C1B6]">
             Login
-          </a>
-          <a href="/register" className="hover:text-[#D2C1B6]">
+          </Link>
+          <Link to="/register" className="hover:text-[#D2C1B6]">
             Register
-          </a>
+          </Link>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <header className="flex flex-col md:flex-row items-center justify-between p-10 bg-[#456882] text-white">
+      <header className="flex flex-col md:flex-row items-center p-5 bg-[#456882] text-white gap-100">
         <div className="max-w-xl">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Discover, Join & Host Events
@@ -32,17 +33,17 @@ const HomePage = () => {
             Your one-stop platform to engage in amazing community events, meet
             people, and grow together.
           </p>
-          <a
-            href="/events"
+          <Link
+            to="/events"
             className="bg-white text-[#1B3C53] font-semibold py-2 px-4 rounded hover:bg-[#D2C1B6]"
           >
             Explore Events
-          </a>
+          </Link>
         </div>
         <img
-          src="/hero-image.svg"
+          src="/hero-img.png"
           alt="Hero"
-          className="w-64 md:w-96 mt-10 md:mt-0"
+          className="w-55 md:w-96 mt-10 md:mt-0 ml-2"
         />
       </header>
 

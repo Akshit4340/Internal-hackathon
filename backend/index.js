@@ -40,12 +40,12 @@ app.set("io", io); // So we can access io inside controllers
 
 // app.use(CookieParser());
 
-// app.use(
-//   cors({
-//     origin: "*",
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    origin: "*",
+    credentials: true,
+  })
+);
 
 app.get("/", (req, res) => {
   res.send("Welcome to the server!");

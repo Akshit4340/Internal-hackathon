@@ -18,7 +18,8 @@ const registerUser = async (req, res) => {
 
     const hashed = await bcrypt.hash(password, 10);
     const user = await User.create({ name, email, password: hashed });
-
+    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("token", generateToken(user));
     res.status(201).json({ token: generateToken(user), user });
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -35,7 +36,8 @@ const loginUser = async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch)
       return res.status(400).json({ message: "Invalid credentials" });
-
+    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("token", generateToken(user));
     res.json({ token: generateToken(user), user });
   } catch (err) {
     res.status(500).json({ message: err.message });

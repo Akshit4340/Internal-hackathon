@@ -6,6 +6,7 @@ import cors from "cors";
 import CookieParser from "cookieparser";
 
 import authRoutes from "./routes/authRoutes.js";
+import eventRoutes from "./routes/eventRoutes.js";
 const app = express();
 const PORT = process.env.PORT || 8000;
 
@@ -14,6 +15,8 @@ app.use(express.urlencoded({ extended: true }));
 connectDb();
 
 app.use("/api/auth", authRoutes);
+
+app.use("/api/events", eventRoutes);
 
 // app.use(CookieParser());
 
